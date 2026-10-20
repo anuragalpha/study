@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>StudyFlow AI</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="app">
+  <nav class="side" aria-label="Main">
+    <div class="brand">StudyFlow AI</div>
+    <div class="links" id="nav"></div>
+  </nav>
+  <main id="main" tabindex="-1"></main>
+</div>
+
+<dialog id="dlg" aria-labelledby="dlg-title">
+  <form id="tf" novalidate>
+    <h2 id="dlg-title">Task</h2>
+    <input type="hidden" id="f-id">
+    <div class="f"><label for="f-title">Title</label>
+      <input id="f-title" type="text" maxlength="120" aria-describedby="e-title" autocomplete="off">
+      <span class="err" id="e-title" role="alert"></span></div>
+    <div class="f"><label for="f-subject">Subject</label>
+      <input id="f-subject" type="text" maxlength="40" list="subjects" placeholder="General" autocomplete="off">
+      <datalist id="subjects"></datalist></div>
+    <div class="f"><label for="f-desc">Description (optional)</label>
+      <textarea id="f-desc" rows="3" maxlength="1000"></textarea></div>
+    <div class="row2">
+      <div class="f"><label for="f-pri">Priority</label>
+        <select id="f-pri"><option value="high">High</option><option value="medium" selected>Medium</option><option value="low">Low</option></select></div>
+      <div class="f"><label for="f-due">Due date (optional)</label>
+        <input id="f-due" type="date" aria-describedby="e-due"><span class="err" id="e-due" role="alert"></span></div>
+    </div>
+    <div class="f"><label for="f-min">Estimated duration (minutes)</label>
+      <input id="f-min" type="number" min="5" max="600" step="1" value="30" aria-describedby="e-min">
+      <span class="err" id="e-min" role="alert"></span></div>
+    <div class="acts end">
+      <button type="button" class="btn" id="f-cancel">Cancel</button>
+      <button type="submit" class="btn primary">Save task</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body>
+</html>
